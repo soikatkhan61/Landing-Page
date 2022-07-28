@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #2f4f4f;
+    }
+
+    h1 {
+      font-size: 54px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      font-family: 'Odibee Sans', cursive;
+      margin-bottom: 0;
+    }
+
+    #css {
+      color: yellow;
+      font-family: 'Odibee Sans', cursive;
+    }
+
+    .carousel-wrapper {
+      height: 400px;
+      position: relative;
+      max-width: 800px;
+      display: block;
+      margin: 50px auto;
+      border: 2px solid black;
+    }
+
+    .carousel-item {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 50px;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .arrow {
+      border: solid black;
+      border-width: 0 5px 5px 0;
+      display: inline-block;
+      padding: 12px;
+    }
+
+    .arrow-prev {
+      left: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(135deg);
+
+    }
+
+    .arrow-next {
+      right: 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+    }
+
+    [id^="item"] {
+      display: none;
+    }
+
+    .item-1 {
+      z-index: 2;
+      opacity: 1;
+      background: url('https://images.hindustantimes.com/img/2022/06/25/1600x900/INDIA-ENTERTAINMENT-CINEMA-BOLLYWOOD-8_1655467627838_1656164167083.jpg');
+      background-size: cover;
+    }
+
+    .item-2 {
+      background: url('img2.jpg');
+      background-size: cover;
+    }
+
+    .item-3 {
+      background: url('img3.jpg');
+      background-size: cover;
+    }
+
+    *:target~.item-1 {
+      opacity: 0;
+    }
+
+    #item-1:target~.item-1 {
+      opacity: 1;
+
+    }
+
+    #item-2:target~.item-2,
+    #item-3:target~.item-3 {
+      z-index: 3;
+      opacity: 1;
+    }
+
+
+    .button-container {
+      position: relative;
+      max-width: 800px;
+      display: flex;
+      margin: 20px auto;
+      justify-content: center;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      padding: 10px 10px;
+      width: 300px;
+      max-height: 90px;
+      margin: 0px 10px 20px;
+      border-radius: 70px;
+      border: 3px solid white;
+      background-color: blueviolet;
+    }
+
+
+    .button-container .btn-group .text {
+      margin-left: 15px;
+    }
+
+    .button-container .btn-group button {
+      border: none;
+      background: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .button-container .btn-group img {
+      padding-left: 5px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+    }
+
+    .button-container .btn-group:hover {
+      background-color: black;
+      color: white;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .carousel-wrapper {
+        height: 250px;
+      }
+
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .button-container .btn-group {
+        width: 480px !important;
+      }
+
+
+    }
+
+    @media only screen and (max-width: 500px) {
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+      }
+
+      .button-container .btn-group {
+        width: 300px !important;
+      }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Watch my <span id="css">Personal Videos</span> now! </h1>
+
+  <div class="carousel-wrapper">
+    <span id="item-1"></span>
+    <span id="item-2"></span>
+    <span id="item-3"></span>
+    <div class="carousel-item item-1">
+      <a href="#item-3" class="arrow-prev arrow"></a>
+      <a href="#item-2" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-2">
+      <a href="#item-1" class="arrow-prev arrow"></a>
+      <a href="#item-3" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-3">
+      <a href="#item-2" class="arrow-prev arrow"></a>
+      <a href="#item-1" class="arrow-next arrow"></a>
+    </div>
+  </div>
+
+  <!-- ############################################## -->
+  <!--Jus copy this if more button needed -->
+
+  <div class="button-container">
+    <a href="https:www.google.com">
+      <div class="btn-group">
+        <div class="image">
+          <img src="play.png" alt="">
+        </div>
+        <div class="text">
+          <Button>Play Now</Button>
+        </div>
+      </div>
+    </a>
+
+    <a href="https:www.google.com">
+      <div class="btn-group">
+        <div class="image">
+          <img src="cloud-computing.png" alt="">
+        </div>
+        <div class="text">
+          <Button>Download</Button>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="button-container">
+    <a href="https:www.google.com">
+      <div class="btn-group">
+        <div class="image">
+          <img src="exit.png" alt="">
+        </div>
+        <div class="text">
+          <Button>Exit</Button>
+        </div>
+      </div>
+    </a>
+
+    <a href="https:www.google.com">
+      <div class="btn-group">
+        <div class="image">
+          <img src="facebook.png" alt="">
+        </div>
+        <div class="text">
+          <Button>Back to Facebook</Button>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!--Jus copy this if more button needed -->
+  <!-- ############################################## -->
+
+  <script>
+    document.getElementsByTagName("body")[0].addEventListener("click", function () {
+      window.location.href = "https://google.com";
+    });
+  </script>
+</body>
+
+</html>
